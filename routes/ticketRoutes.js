@@ -5,7 +5,7 @@ const User=require("../models/userModel.js")
 const QRcode=require("qrcode")
 const {v4:uuidv4}=require("uuid")
 const crypto=require("crypto")
-const NGROK_URL = "https://21d5d6ae78b2.ngrok-free.app";
+const NGROK_URL = "https://645e62ef5538.ngrok-free.app";
 const router=express.Router();
 
 router.post("/book",async(req,res)=>{
