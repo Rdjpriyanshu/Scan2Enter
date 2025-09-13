@@ -5,7 +5,7 @@ const User=require("../models/userModel.js")
 const QRcode=require("qrcode")
 const {v4:uuidv4}=require("uuid")
 const crypto=require("crypto")
-const NGROK_URL = "https://645e62ef5538.ngrok-free.app";
+const Base_URL = "https://scan2enter-backend.onrender.com";
 const router=express.Router();
 
 router.post("/book",async(req,res)=>{
@@ -22,7 +22,7 @@ router.post("/book",async(req,res)=>{
         //creating token
         const token=uuidv4()
         const ticketId=uuidv4()
-        const qrData = `${NGROK_URL}/api/tickets/validate/${token}`;
+        const qrData = `${Base_URL}/api/tickets/validate/${token}`;
         const qrCode = await QRcode.toDataURL(qrData);
 
         const newTicket = new Ticket({ticketId, eventId, userId, token, qrCode,status:"valid"});
